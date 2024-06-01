@@ -11,6 +11,7 @@ public record ChatMessageDto(
         String content,
         String timestamp
 ) implements Serializable {
+
     public static ChatMessage toModel(ChatMessageDto messageDto) {
         return ChatMessage.builder()
                 .type(messageDto.type)

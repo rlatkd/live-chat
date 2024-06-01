@@ -20,11 +20,6 @@ public class ChatController {
 
     private final KafkaProducerService producerService;
 
-    @PostMapping("/publish")
-    public void enter(@RequestBody ChatMessageDto chatMessageDto) {
-        producerService.sendChatMessage(chatMessageDto);
-    }
-
     @MessageMapping("/message")
     public void broadcastGroupMessage(@Payload ChatMessageDto chatMessage) {
         producerService.sendChatMessage(chatMessage);

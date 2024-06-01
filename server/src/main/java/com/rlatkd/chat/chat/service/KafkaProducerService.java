@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 public class KafkaProducerService {
 
     private final KafkaTemplate<String, ChatMessageDto> kafkaChatTemplate;
+
     @Value("${topic.name}")
     private String KAFKA_TOPIC;
 

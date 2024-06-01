@@ -1,7 +1,7 @@
 package com.rlatkd.chat.member.controller;
 
 import com.rlatkd.chat.member.dto.CustomUserDetails;
-import com.rlatkd.chat.member.dto.UserDTO;
+import com.rlatkd.chat.member.dto.UserDto;
 import com.rlatkd.chat.member.service.LoginService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> loginP(@RequestBody UserDTO userDTO, HttpServletRequest request) {
+    public ResponseEntity<String> loginP(@RequestBody UserDto userDTO, HttpServletRequest request) {
         try {
             request.login(userDTO.getUsername(), userDTO.getPassword());
         } catch (ServletException e) {

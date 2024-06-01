@@ -24,6 +24,7 @@ public class KafkaConsumerService {
      * - template.convertAndSend를 통해 WebSocket으로 메시지를 전송
      * - Message를 작성할 때 경로 잘 보고 import
      */
+
     @KafkaListener(
             topics = "${topic.name}",
             groupId = "test"

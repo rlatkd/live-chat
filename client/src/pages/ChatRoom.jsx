@@ -1,10 +1,10 @@
 /* eslint-disable */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Chat from "../components/Chat";
 import Input from "../components/Input";
-import ChatApi from "../services/ChatApi";
-import { StompSessionProvider, useSubscription } from "react-stomp-hooks";
+import { Stomp } from "@stomp/stompjs";
+import SockJS from "sockjs-client";
 import { useLocation } from "react-router-dom";
 
 const ChatRoom = () => {
@@ -15,33 +15,46 @@ const ChatRoom = () => {
     //로그인한 유저 정보 받아오기
     const currentUser = location.state?.user;
 
-    console.log("[currentUser]", currentUser);
-
-    //메시지들 상태저장
+    //메시지 상태저장
     const [messages, setMessages] = useState([]);
 
-    // 메시지 받기
+    //메시지 받기
+    const [stompClient, setStompClient] = useState(null);
+
+    //WebSocket 연결
+    useEffect(() => {
+        const socket = new SockJS("http://localhost:9100/my-chat"); //http로 최초1회 핸드셰이크하면 그 후론 알아서 ws 통신
+        const client = Stomp.over(socket);
+
+        client.connect({}, () => {
+            client.subscribe("/topic/group", (message) => { //STOMP client 카프카를 구독
+                onMessageReceived(JSON.parse(message.body));
+            });
+        });
+
+        setStompClient(client); //STOMP 클라이언트 설정
+
+        return () => {
+            client.disconnect();
+        };
+    }, []);
+
+    //메시지 수신
     const onMessageReceived = (message) => {
         setMessages((prevMessages) => [...prevMessages, message]);
     };
 
-    // 메시지 전송
+    //메시지 송신 핸들러
     const handleMessageSubmit = (message) => {
-        ChatApi.sendMessage(currentUser.name, message)
-            .then((res) => {
-                console.log("[보낸 메시지]", res);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
-    //카프카 메시지 큐잉
-    const Subscription = ({ onMessageReceived }) => {
-        useSubscription("/topic/group", (message) => {
-            onMessageReceived(JSON.parse(message.body));
-        });
-        return null;
+        if (stompClient) {
+            const msg = {
+                author: currentUser.name,
+                content: message,
+            };
+            stompClient.send("/kafka/message", {}, JSON.stringify(msg)); //STOMP Client가 메시지 전달
+        } else {
+            console.log("STOMP 연결 안 됨");
+        }
     };
 
     return (
@@ -50,15 +63,8 @@ const ChatRoom = () => {
                 <h4>효성에프엠에스 1기 톡방</h4>
             </div>
             <div className="content">
-                <StompSessionProvider
-                    url="http://localhost:9100/my-chat"
-                    onConnect={() => console.log("on")}
-                    onDisconnect={() => console.log("off")}
-                >
-                    <Subscription onMessageReceived={onMessageReceived} />
-                    <Chat messages={messages} currentUser={currentUser} />
-                    <Input handleOnSubmit={handleMessageSubmit} />
-                </StompSessionProvider>
+                <Chat messages={messages} currentUser={currentUser} />
+                <Input handleOnSubmit={handleMessageSubmit} />
             </div>
         </>
     );

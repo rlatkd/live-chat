@@ -2,7 +2,17 @@
 
 import "../styles/Chat.css";
 
+import { useRef, useEffect } from "react";
+
 const Chat = ({ messages, currentUser }) => {
+
+    //스크롤용 유즈레프
+    const chatEndRef = useRef(null);
+
+    //스크롤 자동 최하단
+    useEffect(() => {
+        chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }, [messages]);
 
     //시간 형식 설정
     const formattingTimestamp = (timestamp) => {
@@ -44,6 +54,7 @@ const Chat = ({ messages, currentUser }) => {
                     </div>
                 </li>
             ))}
+            <div ref={chatEndRef}></div>
         </div>
     );
 };
