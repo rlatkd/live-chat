@@ -20,6 +20,7 @@ import java.util.Map;
  * - KEY_DESERIALIZER_CLASS_CONFIG와 VALUE_DESERIALIZER_CLASS_CONFIG는 Kafka에서 받은 데이터의 키와 값을 역직렬화함
  * - AUTO_OFFSET_RESET_CONFIG에는 latest(가장 최근에 생성된 메시지를 offset reset), earliest(가장 오래된 메시지를), none의 값을 입력할 수 있음
  **/
+
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {
@@ -46,4 +47,5 @@ public class KafkaConsumerConfig {
 
         return configurations;
     }
+    
 }
