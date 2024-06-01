@@ -60,7 +60,6 @@ const Join = () => {
                 />
                 <button className="login-button" type="button" onClick={handleJoin}>회원가입</button>
                 <button className="join-button" type="button" onClick={() => navigate("/")}>취소</button>
-                
             </div>
         </div>
     )

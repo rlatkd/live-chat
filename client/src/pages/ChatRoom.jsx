@@ -12,7 +12,7 @@ const ChatRoom = () => {
     //유즈로케이션
     const location = useLocation();
 
-     // 로그인한 유저 정보 받아오기
+    //로그인한 유저 정보 받아오기
     const currentUser = location.state?.user;
 
     console.log("[currentUser]", currentUser);
@@ -36,7 +36,7 @@ const ChatRoom = () => {
             });
     };
 
-    // 카프카 메시지 큐잉
+    //카프카 메시지 큐잉
     const Subscription = ({ onMessageReceived }) => {
         useSubscription("/topic/group", (message) => {
             onMessageReceived(JSON.parse(message.body));
