@@ -1,3 +1,3 @@
 ### Preview
 
-<img src = "https://github.com/rlatkd/live-chat/tree/main/assets/preview.gif">
+<img src = "https://github.com/rlatkd/live-chat/blob/main/assets/preview.gif">
