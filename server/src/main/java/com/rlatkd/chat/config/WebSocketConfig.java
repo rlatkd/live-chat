@@ -28,4 +28,5 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.setApplicationDestinationPrefixes("/kafka");
         registry.enableSimpleBroker("/topic/");
     }
+    
 }
