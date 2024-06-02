@@ -1,4 +1,4 @@
-package com.rlatkd.chat.config;
+package com.rlatkd.chat.config.websocket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
