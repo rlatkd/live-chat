@@ -21,4 +21,5 @@ public class ChatController {
     public void broadcastGroupMessage(@Payload ChatMessageDto chatMessage) {
         producerService.sendChatMessage(chatMessage);
     }
+    
 }
