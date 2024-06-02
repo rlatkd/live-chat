@@ -36,4 +36,5 @@ public class KafkaConsumerService {
             log.error(e.getMessage());
         }
     }
+    
 }
