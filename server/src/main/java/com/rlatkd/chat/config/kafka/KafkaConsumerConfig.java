@@ -42,7 +42,6 @@ public class KafkaConsumerConfig {
         configurations.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
         configurations.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configurations.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-
         return configurations;
     }
     
