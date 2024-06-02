@@ -29,12 +29,12 @@ const ChatRoom = () => {
         const client = Stomp.over(socket);
 
         client.connect({}, () => {
-            client.subscribe("/topic/group", (message) => { //STOMP client 카프카를 구독
+            client.subscribe("/topic/group", (message) => { //STOMP Client 카프카를 구독(메시지 브로커 매핑)
                 onMessageReceived(JSON.parse(message.body));
             });
         });
 
-        setStompClient(client); //STOMP 클라이언트 설정
+        setStompClient(client); //STOMP Client 설정
 
         return () => {
             client.disconnect();
