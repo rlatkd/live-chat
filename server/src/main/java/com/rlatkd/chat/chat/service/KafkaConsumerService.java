@@ -25,7 +25,7 @@ public class KafkaConsumerService {
 
     @KafkaListener(
             topics = "${topic.name}",
-            groupId = "test"
+            groupId = "test-group"
     )
     public void listen(String chatMessage) {
         log.info("[KAFKA] listened: " + chatMessage);
