@@ -25,8 +25,9 @@ const ChatRoom = () => {
 
     //WebSocket 연결
     useEffect(() => {
-        //Kafka는 ws프로토콜을 지원하지 않기 때문에 stompjs의 Client 객체가 아닌 Stomp 객체를 사용함
-        //http로 최초1회 핸드셰이크하면 그 후론 알아서 ws 통신
+   
+        //http를 해도 stompjs가 알아서 ws로 전환
+        //최초1회 핸드셰이크하면 그 후론 알아서 ws 통신
         const socket = new SockJS("http://localhost:9100/api/chat");
         const client = Stomp.over(socket);
 
