@@ -35,8 +35,9 @@ const Chat = ({ messages, currentUser }) => {
 
     return (
         <div className="chat-div">
-            {messages.map((msg) => (
+            {messages.map((msg,index) => (
                 <li
+                    key={index}
                     className={`chat-message ${
                         msg.author === currentUser.name ? "sent" : "received"
                     }`}

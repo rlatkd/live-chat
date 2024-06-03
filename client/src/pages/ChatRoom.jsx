@@ -25,7 +25,7 @@ const ChatRoom = () => {
 
     //WebSocket 연결
     useEffect(() => {
-        const socket = new SockJS("http://localhost:9100/my-chat"); //http로 최초1회 핸드셰이크하면 그 후론 알아서 ws 통신
+        const socket = new SockJS("http://localhost:9100/api/chat"); //http로 최초1회 핸드셰이크하면 그 후론 알아서 ws 통신
         const client = Stomp.over(socket);
 
         client.connect({}, () => {
