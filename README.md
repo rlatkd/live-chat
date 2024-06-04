@@ -8,6 +8,11 @@ docker-compose up (--build)
 
 재업로드 예정
 
+## ㅈ
+완벽한 분산 서버 환경에 맞지 않지만<br>
+백엔드 서버가 n개(2이상)이라 가정 하에<br>
+다른 서버에 요청을 보내도 같은 topic에서 서로의 채팅이 오가는 걸 확인 가능
+
 ## Message Queue
 
 ### [메시지큐 정리 링크](https://velog.io/@kata/Message-Queue)
