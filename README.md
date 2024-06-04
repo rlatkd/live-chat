@@ -10,7 +10,7 @@ docker-compose up (--build)
 
 ## Message Queue
 
-[메시지큐 정리](https://velog.io/@kata/Message-Queue)
+### [메시지큐 정리](https://velog.io/@kata/Message-Queue)
 
 |  | RabbitMQ, ActiveMQ | Apache Kafka |
 | --- | --- | --- |
