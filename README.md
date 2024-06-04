@@ -24,10 +24,8 @@ docker-compose up (--build)
 
 |  | RabbitMQ, ActiveMQ | Apache Kafka |
 | --- | --- | --- |
-| 메시지 저장 공간 | 메모리에 저장 | 파일로 저장
-→ 카프카 서버를 재시작해도 메시지 유실 우려 감소 |
-| 메시지 전달 방식 | Broker가 Consumer에게 push | Consumer가 Broker로부터 메시지를 직접 가져가는 pull
-→ 자신의 처리 능력만큼의 메시지만 가져와 최적의 성능 |
+| 메시지 저장 공간 | 메모리에 저장 | 파일로 저장<br>→ 카프카 서버를 재시작해도 메시지 유실 우려 감소 |
+| 메시지 전달 방식 | Broker가 Consumer에게 push | Consumer가 Broker로부터 메시지를 직접 가져가는 pull<br>→ 자신의 처리 능력만큼의 메시지만 가져와 최적의 성능 |
 | 언제 사용 | 신뢰성과 안전성 | 대용량 분산 시스템 |
 
 ## Flow
