@@ -15,21 +15,39 @@ services:
             KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
-    client:
+    client1:
         build: 
-            context: "./client"
+            context: "./client1"
             dockerfile: Dockerfile 
         restart: on-failure
         ports: 
             - "3000:3000"
-    server:
+    server1:
         build:
-            context: "./server"
+            context: "./server1"
             dockerfile: Dockerfile
         restart: on-failure
         depends_on:
             - kafka
         ports:
             - "9100:9100"
+        environment:
+            - TZ=Asia/Seoul
+    client2:
+        build: 
+            context: "./client2"
+            dockerfile: Dockerfile 
+        restart: on-failure
+        ports: 
+            - "3001:3001"
+    server2:
+        build:
+            context: "./server2"
+            dockerfile: Dockerfile
+        restart: on-failure
+        depends_on:
+            - kafka
+        ports:
+            - "9101:9101"
         environment:
             - TZ=Asia/Seoul
