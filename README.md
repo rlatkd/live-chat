@@ -11,7 +11,7 @@ docker-compose up (--build)
 ## Purpose
 완벽한 분산 서버 환경(or MSA)는 아니지만<br>
 백엔드 서버가 n개(2이상)이라 가정 하에<br>
-다른 서버에 요청을 보내도 같은 topic에서 서로의 채팅이 오가는 걸 확인 가능
+각각 다른 서버에 요청을 보내도 같은 topic에서 서로의 채팅이 오가는 걸 확인 가능
 
 ## Message Queue
 
