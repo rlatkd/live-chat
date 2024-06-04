@@ -67,7 +67,7 @@ docker-compose up (--build)
 
 STOMP를 사용하다 pub/sub이란 용어가 나오자마자 해보고 싶었던
 
-Kafka를 스스로 공부하여 적용시키는 과정도 너무 재밌었습니다
+Kafka를 스스로 공부하여 적용시키는 과정도 너무 재밌었습니다.
 
 점점 Spring Boot가 익숙해지면서 도전해보고 싶은 기능이 많아
 
