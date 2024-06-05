@@ -39,7 +39,7 @@ public class KafkaConsumerConfig {
     public Map<String, Object> consumerConfigurations() {
         Map<String, Object> configurations = new HashMap<>();
         configurations.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092");
-        configurations.put(ConsumerConfig.GROUP_ID_CONFIG, "test-group");
+        configurations.put(ConsumerConfig.GROUP_ID_CONFIG, "test-group-1");
         configurations.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configurations.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         return configurations;
