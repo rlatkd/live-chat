@@ -6,7 +6,27 @@ docker-compose up (--build)
 
 ## Preview
 
-<img src = "https://github.com/rlatkd/live-chat/blob/main/assets/preview.gif">
+재업로드 예정
+
+## Purpose
+
+완벽한 분산 서버 환경(or MSA)는 아니지만
+<br>
+백엔드 서버가 n개(2개 이상)이라 가정 하에
+<br>
+각각 다른 서버에 요청을 보내도 같은
+<br>
+topic을 구독한 유저들은
+<br>
+서로의 채팅이 오가는 걸 확인 가능
+<br>
+<br>
+``확장성 고려 및 트래픽에 걸리는 부하에 따른 서비스 성능 개선 필요``
+<br>
+<br>
+이번엔 실시간 채팅이란 정해진 틀에 적용했지만
+<br>
+차후 대용량 분산 환경에서 메시지 큐잉이 필요한 서비스에 접목시켜 기능 구현 예정
 
 ## Message Queue
 
@@ -14,10 +34,8 @@ docker-compose up (--build)
 
 |  | RabbitMQ, ActiveMQ | Apache Kafka |
 | --- | --- | --- |
-| 메시지 저장 공간 | 메모리에 저장 | 파일로 저장
-→ 카프카 서버를 재시작해도 메시지 유실 우려 감소 |
-| 메시지 전달 방식 | Broker가 Consumer에게 push | Consumer가 Broker로부터 메시지를 직접 가져가는 pull
-→ 자신의 처리 능력만큼의 메시지만 가져와 최적의 성능 |
+| 메시지 저장 공간 | 메모리에 저장 | 파일로 저장<br>→ 카프카 서버를 재시작해도 메시지 유실 우려 감소 |
+| 메시지 전달 방식 | Broker가 Consumer에게 push | Consumer가 Broker로부터 메시지를 직접 가져가는 pull<br>→ 자신의 처리 능력만큼의 메시지만 가져와 최적의 성능 |
 | 언제 사용 | 신뢰성과 안전성 | 대용량 분산 시스템 |
 
 ## Flow
@@ -44,3 +62,17 @@ docker-compose up (--build)
 ## 후기
 
 5일동안 정말 많이 배웠습니다.
+
+약 4개월만에 React를 구현하며 감각을 되찾음과 동시에 2차에서
+
+JS를 공부하며 한층 더 향상한 FE 개발 과정이 너무 재밌었고
+
+그동안 잊고 있었던 Dockerfile도 작성하며 다시금 배우는 계기가 되었습니다.
+
+STOMP를 사용하다 pub/sub이 나오자마자 해보고 싶었던 Kafka를 스스로 공부하며
+
+적용시키는 과정도 너무 재밌었습니다.
+
+점점 다양한 아이디어가 떠오르며 도전해보고 싶은게 많아 이번 FINAL PROJECT가 너무 기대됩니다.
+
+감사합니다.
