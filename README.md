@@ -22,7 +22,7 @@ topic을 구독한 유저들은
 <br>
 <br>
 ``확장성 고려 및 트래픽에 걸리는 부하에 따른 서비스 성능 개선 필요``
-### -> 모니터링 시스템에 적용 [링크](https://github.com/rlatkd/monitoring-system)
+### -> 모니터링 시스템에 적용 ([링크](https://github.com/rlatkd/monitoring-system))
 
 ## Message Queue
 
