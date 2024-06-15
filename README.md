@@ -6,7 +6,7 @@ docker-compose up (--build)
 
 ## Preview
 
-재업로드 예정
+<img src = "https://github.com/rlatkd/live-chat/blob/main/assets/preview.gif">
 
 ## Purpose
 
